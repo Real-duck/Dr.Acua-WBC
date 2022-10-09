@@ -13,3 +13,4 @@ streamlit
 streamlit_option_menu
 tensorflow
 tensorflow_addons
+plotly
