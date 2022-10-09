@@ -24,7 +24,6 @@ def wbc():
     st.sidebar.markdown('___')
     option_wbc = st.sidebar.radio('Optionen', ['Segmentieren', 'Erkennen'])
     selection = st.selectbox('Upload oder Testbild?', ['Testbild', 'Upload'])
-    test= st.sidebar.button('Test')
     
     if selection == 'Upload':
         image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
