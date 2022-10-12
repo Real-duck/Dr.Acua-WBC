@@ -30,7 +30,7 @@ def home():
 
     st.markdown('## Wie benutze ich die Website?')
     st.markdown('Auf dieser Seite gibt es verschiedene Module. Mit dem WBC Modul kann man Testbilder oder eigene Bilder **einzeln** Segmentieren und Klassifizieren. '
-                'Bei dem Hochladen kann auf diesem Prototyp nur eine weiße Blutzelle vorhanden sein. Später wird ein SegNet die weißen Blutzellen Segmentieren und ausschneiden, sodass diese dann typisiert werden können.')
+                'Bei dem Hochladen kann auf diesem Prototyp nur eine weiße Blutzelle vorhanden sein. Später wird ein SegNet die weißen Blutzellen segmentieren und ausschneiden, sodass diese dann typisiert werden können.')
     st.markdown('___')
     st.markdown('## WBC-Performance')
     st.markdown('Hier kann die KI auf echten Daten ausprobiert werden. Dafür ist ein Datensatz genommen worden, wo die Zellen nicht eindeutig trennbar und klassifizierbar sind. Man kann auch Modelle ausprobieren, die nicht auf diesen Datensatz trainiert wurden, so kann die relativ hohe Generalisierbarkeit der KI aufgezeigt werden.')
