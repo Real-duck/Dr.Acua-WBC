@@ -29,13 +29,11 @@ def home():
     st.markdown('___')
 
     st.markdown('## Wie benutze ich die Website?')
-    st.markdown('Auf dieser Seite gibt es verschiedene Module, das CBC Modul kann Blutzellen von einem Blutbild, welches mit einem '
-                'Mikroskop aufgenommen wurde, segmentieren und typisieren. Das WBC Modul kann weiße Blutzellen Klassifizieren. '
-                'Dafür muss man aktuell die weiße Blutzelle ausschneiden und dann hochladen. Bei größeren Bildern wird das hochgeladene '
-                'Bild aktuell nur in 600x600 aufgeteilt. In der Zukunft soll dafür eine KI benutzt werden, welche alle Zellen automatisch '
-                'findet und ausschneided.')
-    st.image(Image.open('images/reprs.jpg'), caption='Dimiension sind falsch', width=400)
+    st.markdown('Auf dieser Seite gibt es verschiedene Module. Mit dem WBC Modul kann man Testbilder oder eigene Bilder **einzeln** Segmentieren und Klassifizieren. '
+                'Bei dem Hochladen kann auf diesem Prototyp nur eine weiße Blutzelle vorhanden sein. Später wird ein SegNet die weißen Blutzellen Segmentieren und ausschneiden, sodass diese dann typisiert werden können.')
     st.markdown('___')
+    st.markdown('## WBC-Performance')
+    st.markdown('Hier kann die KI auf echten Daten ausprobiert werden. Dafür ist ein Datensatz genommen worden, wo die Zellen nicht eindeutig trennbar und klassifizierbar sind. Man kann auch Modelle ausprobieren, die nicht auf diesen Datensatz trainiert wurden, so kann die relativ hohe Generalisierbarkeit der KI aufgezeigt werden.')
     #st.markdown('Github: Kommt Bald!')
 
     #st.markdown('## Wie funktioniert die Website? ')
