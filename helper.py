@@ -187,12 +187,12 @@ def folder_performance(folder, name, model_path, train_path):
         else:
             gt_names.append('Keine Blutzelle gefunden')
     # create a dataframe with the names, counts and ground truth counts
-    df = pd.DataFrame({'names': names, 'counts': counts, 'ground_truth': gt_counts})
+    df = pd.DataFrame({'names': names, 'Vorhergesagte Werte': counts, 'Wahre Werte': gt_counts})
 
     # create a bar chart with the predictions and the ground truth add both to the same chart and legend
     fig = go.Figure()
-    fig.add_trace(go.Bar(x=df['names'], y=df['counts'], name='Predictions', marker_color='#50fa7b'))
-    fig.add_trace(go.Bar(x=df['names'], y=df['ground_truth'], name='Ground Truth', marker_color='#bd93f9'))
+    fig.add_trace(go.Bar(x=df['names'], y=df['Vorhergesagte Werte'], name='KI', marker_color='#50fa7b'))
+    fig.add_trace(go.Bar(x=df['names'], y=df['Wahre Werte'], name='Wahre Werte', marker_color='#bd93f9'))
 
     fig.update_layout(barmode='group')
     # change containenr width to columnn width
