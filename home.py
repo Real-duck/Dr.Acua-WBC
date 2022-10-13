@@ -25,7 +25,8 @@ def home():
     st.markdown('## Was ist Dr Acula?')
     st.markdown('Inspiriert vom berüchtigten Vampir - mit seiner eigenen Netflix Serie - Dracula, hat sich '
                'der Vampir Dr. Acula dazu entschieden sein Wissen über Blut zu veröffentlichen. Er kann '
-               'eine sich oft wiederholende, aber auch wichtige Aufgabe, vom Zählen der Arten von Blutkörperchen übernehmen.')
+               'eine sich oft wiederholende, aber auch wichtige Aufgabe, vom Zählen der Arten von Blutkörperchen übernehmen.'
+               ' __Dadurch können Blutbilder schnell, genau und vor allem billig in allen teilen der Welt gemacht werden.__')
     st.markdown('___')
 
     st.markdown('## Wie benutze ich die Website?')
