@@ -121,13 +121,8 @@ def home():
         'Das Ergebnis kann für das Zählen einer Blutkörperchen Art benutzt werden. [Mehr zum benutzten Verfahren](https://sbme-tutorials.github.io/2021/cv/notes/4_week4.html)')
     st.image(Image.open('images/hough_transform.png'), caption='Hough Transform für rote Blutkörperchen',
                 width=400)
-    st.markdown('___')
-    st.markdown('___Component labeling___:')
-    st.markdown(
-        'Dieser Algorithmus erkennt verbundene Objekte in einem binären Bild, also das Ergebnis der Segmentation.'
-        'Component labeling kann auch für das Zählen benutzt werden. [Mehr zum benutzten Verfahren] (https://pyimagesearch.com/2021/02/22/opencv-connected-component-labeling-and-analysis/)')
-    st.image(Image.open('images/t.jpeg'), caption='Component labeling für rote Blutkörperchen',
-                width=400)
+
+
     st.markdown('___')
     st.markdown('___Distance transform___:')
     st.markdown(
