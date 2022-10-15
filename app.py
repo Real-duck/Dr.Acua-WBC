@@ -16,8 +16,8 @@ import joblib
 import matplotlib.pyplot as plt
 from Functions import segmentation, feature_extractor
 
+from fold import folder
 from home import home
-from cbc import cbc
 from wbc import wbc
 # ---
 import tensorflow as tf
@@ -27,11 +27,11 @@ if __name__ == '__main__':
     with st.sidebar:
         selection = option_menu(
             None,
-            options=['Home', 'WBC', 'CBC'],
-            icons=['house', 'graph-up', 'moisture'],
+            options=['Home', 'WBC', 'WBC-Performance'],
+            icons=['house', 'graph-up','file-earmark-bar-graph'],
             styles={
                 'icon': {'font-size': '18px'},
-                'nav-link-selected': {'background-color': '#840808'}
+                'nav-link-selected': {'background-color': '#3e0e22'}
             },
             orientation='vertical',
         )
@@ -40,5 +40,5 @@ if __name__ == '__main__':
         home()
     elif selection == 'WBC':
         wbc() 
-    elif selection == 'CBC':
-        cbc()
+    elif selection == 'WBC-Performance':
+        folder()
