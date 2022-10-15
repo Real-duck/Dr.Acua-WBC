@@ -60,7 +60,7 @@ def wbc():
     else:
         if image_file != None:
             shape = Image.open(image_file).size
-        st.write(shape)
+            st.write(shape)
         if option_wbc == 'Segmentieren' and start:
             segmentation(image)
             if shape[0] > 800 or shape[1] > 800:
