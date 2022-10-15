@@ -19,6 +19,7 @@ from Functions import segmentation, feature_extractor
 from fold import folder
 from home import home
 from wbc import wbc
+from cbc import cbc
 # ---
 import tensorflow as tf
 tf.compat.v1.disable_eager_execution()
@@ -27,8 +28,8 @@ if __name__ == '__main__':
     with st.sidebar:
         selection = option_menu(
             None,
-            options=['Home', 'WBC', 'WBC-Performance'],
-            icons=['house', 'graph-up','file-earmark-bar-graph'],
+            options=['Home', 'WBC', 'WBC-Performance', 'CBC'],
+            icons=['house', 'graph-up','file-earmark-bar-graph', 'moisture'],
             styles={
                 'icon': {'font-size': '18px'},
                 'nav-link-selected': {'background-color': '#3e0e22'}
@@ -42,3 +43,5 @@ if __name__ == '__main__':
         wbc() 
     elif selection == 'WBC-Performance':
         folder()
+    elif selection == 'CBC':
+        cbc()
