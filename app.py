@@ -16,7 +16,7 @@ import joblib
 import matplotlib.pyplot as plt
 from Functions import segmentation, feature_extractor
 
-from fold import folder
+
 from home import home
 from wbc import wbc
 from cbc import cbc
@@ -28,8 +28,8 @@ if __name__ == '__main__':
     with st.sidebar:
         selection = option_menu(
             None,
-            options=['Home', 'WBC', 'WBC-Performance', 'CBC'],
-            icons=['house', 'graph-up','file-earmark-bar-graph', 'moisture'],
+            options=['Home', 'WBC',  'CBC'],
+            icons=['house', 'graph-up', 'moisture'],
             styles={
                 'icon': {'font-size': '18px'},
                 'nav-link-selected': {'background-color': '#3e0e22'}
@@ -41,7 +41,6 @@ if __name__ == '__main__':
         home()
     elif selection == 'WBC':
         wbc() 
-    elif selection == 'WBC-Performance':
-        folder()
+
     elif selection == 'CBC':
         cbc()
