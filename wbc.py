@@ -30,10 +30,7 @@ def wbc():
         st.warning('Bilder sollten im richtigen Format sein. Siehe Testbilder') 
         if image_file is not None:
             image = load_image(image_file, svm=True)
-            # To See details
-            file_details = {"filename":image_file.name, "filetype":image_file.type,
-                            "filesize":image_file.size}
-            st.write(file_details)
+
     else:
         st.markdown('___')
         st.markdown('# Bild auswählen:')
