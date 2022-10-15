@@ -25,16 +25,17 @@ def home():
     st.markdown('## Was ist Dr Acula?')
     st.markdown('Inspiriert vom berüchtigten Vampir - mit seiner eigenen Netflix Serie - Dracula, hat sich '
                'der Vampir Dr. Acula dazu entschieden sein Wissen über Blut zu veröffentlichen. Er kann '
-               'eine sich oft wiederholende, aber auch wichtige Aufgabe, vom Zählen der Arten von Blutkörperchen übernehmen.'
-               ' __Dadurch können Blutbilder schnell, genau und vor allem billig in allen teilen der Welt gemacht werden.__')
+               'eine sich oft wiederholende, aber auch wichtige Aufgabe, vom Zählen der Arten von Blutkörperchen übernehmen.')
     st.markdown('___')
 
     st.markdown('## Wie benutze ich die Website?')
-    st.markdown('Auf dieser Seite gibt es verschiedene Module. Mit dem WBC Modul kann man Testbilder oder eigene Bilder **einzeln** Segmentieren und Klassifizieren. '
-                'Bei dem Hochladen kann auf diesem Prototyp nur eine weiße Blutzelle vorhanden sein. Später wird ein SegNet die weißen Blutzellen segmentieren und ausschneiden, sodass diese dann typisiert werden können.')
+    st.markdown('Auf dieser Seite gibt es verschiedene Module, das CBC Modul kann Blutzellen von einem Blutbild, welches mit einem '
+                'Mikroskop aufgenommen wurde, segmentieren und typisieren. Das WBC Modul kann weiße Blutzellen Klassifizieren. '
+                'Dafür muss man aktuell die weiße Blutzelle ausschneiden und dann hochladen. Bei größeren Bildern wird das hochgeladene '
+                'Bild aktuell nur in 600x600 aufgeteilt. In der Zukunft soll dafür eine KI benutzt werden, welche alle Zellen automatisch '
+                'findet und ausschneided.')
+    st.image(Image.open('images/reprs.jpg'), caption='Dimiension sind falsch', width=400)
     st.markdown('___')
-    st.markdown('## WBC-Performance')
-    st.markdown('Hier kann die KI auf echten Daten ausprobiert werden. Dafür ist ein Datensatz genommen worden, wo die Zellen nicht eindeutig trennbar und klassifizierbar sind. Man kann auch Modelle ausprobieren, die nicht auf diesen Datensatz trainiert wurden, so kann die relativ hohe Generalisierbarkeit der KI aufgezeigt werden.')
     #st.markdown('Github: Kommt Bald!')
 
     #st.markdown('## Wie funktioniert die Website? ')
@@ -96,3 +97,41 @@ def home():
                 'Das Zytoplasma in dieser Hülle reicht voll kommen aus, um wichtige Eigenschaften zu extrahieren.')
     st.markdown('___')
 
+    st.markdown('### Blutzellen was das??')
+    st.image(Image.open('images/re1dark.png'))
+
+    
+    st.markdown('## Die Einstellungen ')
+    st.markdown('__Die Einstellungen werden an dem ersten Mikroskop Bild, was man im Netz finden kann, erklärt__.')
+    st.image(Image.open('images/Bild4.jpg'))
+    
+    st.markdown('#### Transformationen')
+    st.markdown(
+        '*Mit diesen Methoden kann das Ergebnis leicht überprüft werden. Der Datensatz kann mit den Ergebnissen auch erweitert werden.*')
+    st.markdown('___')
+    st.markdown('___Threshold___:')
+    st.markdown('Beim Thresholding werden Vordergrundpixel vom Hintergrund seperiert. '
+                ' Die Pixel, die zum Vordergrund gehören sind Weiß, die, die zum Hintergrund gehören sind Schwarz. [Mehr zum benutzten Verfahren](https://www.wikiwand.com/en/Otsu%27s_method)')
+    st.image(Image.open('images/threshold_mask.png'), caption='Thresholding für rote Blutkörperchen',
+                width=400)
+    st.markdown('___')# 
+    st.markdown('___Hough Transform___:')
+    st.markdown(
+        'Diese Methode kann spezifische Formen erkennen. Da Blutkörperchen oft kreisförmig sind, wird hier Circle Hough Transform verwendet. '
+        'Das Ergebnis kann für das Zählen einer Blutkörperchen Art benutzt werden. [Mehr zum benutzten Verfahren](https://sbme-tutorials.github.io/2021/cv/notes/4_week4.html)')
+    st.image(Image.open('images/hough_transform.png'), caption='Hough Transform für rote Blutkörperchen',
+                width=400)
+    st.markdown('___')
+    st.markdown('___Component labeling___:')
+    st.markdown(
+        'Dieser Algorithmus erkennt verbundene Objekte in einem binären Bild, also das Ergebnis der Segmentation.'
+        'Component labeling kann auch für das Zählen benutzt werden. [Mehr zum benutzten Verfahren] (https://pyimagesearch.com/2021/02/22/opencv-connected-component-labeling-and-analysis/)')
+    st.image(Image.open('images/t.jpeg'), caption='Component labeling für rote Blutkörperchen',
+                width=400)
+    st.markdown('___')
+    st.markdown('___Distance transform___:')
+    st.markdown(
+        'Diese Methode nimmt ein binäres Bild und gibt ein grayscale Bild zurück, das die Distanz zwischen den Pixeln repräsentiert. '
+        'Je weiter ein Pixel vom Rand entfernt ist, desto heller wird er sein. Dieses Verfahren kann man aktuell nur isoliert unter der Option "Zählen?" benutzen[Mehr zum benutzten Verfahren](https://homepages.inf.ed.ac.uk/rbf/HIPR2/distance.htm)')
+    st.image(Image.open('images/output.png'), caption='Distance transform für rote Blutkörperchen',
+                 width=400)
