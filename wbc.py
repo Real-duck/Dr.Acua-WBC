@@ -58,7 +58,8 @@ def wbc():
                 st.write(large_img_det(img=f'images/svm/{image}.jpg', image_name=image))
         
     else:
-        shape = Image.open(image_file).size
+        if image_file != None:
+            shape = Image.open(image_file).size
         st.write(shape)
         if option_wbc == 'Segmentieren' and start:
             segmentation(image)
