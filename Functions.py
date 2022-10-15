@@ -126,7 +126,7 @@ def segmentation(img, cbc=False, det=False):
             #cv2.imwrite('images/mask.png', Nucleus_img)
             st.image(Nucleus_img, use_column_width=True)
         # cv2.imwrite('images/svm/convex.jpg', img_convex)
-        # cv2.imwrite('images/svm/ROC.jpg', img_ROC)
+        cv2.imwrite('images/svm/ROC.jpg', img_ROC)
     return Nucleus_img, img_convex, img_ROC
 
 def feature_extractor(img, min_area=100):
