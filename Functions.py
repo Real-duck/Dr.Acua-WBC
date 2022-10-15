@@ -19,15 +19,8 @@ from skimage import filters as fl
 
 
 def segmentation(img, cbc=False, det=False):
-    """
-    :param img: input rgb image
-    :param min_area: minimum area of nucleus, if area of nucleus is lower than this value, this means
-            that the nucleus is not detected
-    :return: binary of nucleus, binary of convexhull, binary of ROC
-    """
     org_img = img.copy()
 
-    # Color balancing
     Gray = cv2.cvtColor(org_img, cv2.COLOR_BGR2GRAY)
     B = img[:, :, 0]
     G = img[:, :, 1]
@@ -53,7 +46,6 @@ def segmentation(img, cbc=False, det=False):
 
     # >>>>>> 8 ms <<<<<<
 
-    # balance_img = org_img.copy()
     cmyk = phim.rgb2cmyk(balance_img)
     _M = cmyk[:, :, 1]
     _K = cmyk[:, :, 3]
@@ -69,8 +61,6 @@ def segmentation(img, cbc=False, det=False):
 
 
 #    cv2.imshow('Step 1' , cv2.resize(Nucleus_img , (256 ,256)))
-
-    # Step 2 :
     min_MS_KM = cv2.GaussianBlur(min_MS_KM, ksize=(5, 5), sigmaX=0)
     try:
         thresh2 = fl.threshold_multiotsu(min_MS_KM, 2)
@@ -123,9 +113,9 @@ def segmentation(img, cbc=False, det=False):
     if det == False:
         if cbc is False:cv2.imwrite('images/svm/nuc.jpg', Nucleus_img)
         else: 
-            #cv2.imwrite('images/mask.png', Nucleus_img)
-            st.image(Nucleus_img, use_column_width=True)
-        # cv2.imwrite('images/svm/convex.jpg', img_convex)
+            cv2.imwrite('images/mask.png', Nucleus_img)
+            st.image('images/mask.png', use_column_width=True)
+        cv2.imwrite('images/svm/convex.jpg', img_convex)
         cv2.imwrite('images/svm/ROC.jpg', img_ROC)
     return Nucleus_img, img_convex, img_ROC
 
@@ -179,7 +169,6 @@ def feature_extractor(img, min_area=100):
 
 #    cv2.imshow('Step 1' , cv2.resize(Nucleus_img , (256 ,256)))
 
-    # Step 2 :
     min_MS_KM = cv2.GaussianBlur(min_MS_KM, ksize=(5, 5), sigmaX=0)
     try:
         thresh2 = fl.threshold_multiotsu(min_MS_KM, 2)
@@ -273,9 +262,9 @@ def feature_extractor(img, min_area=100):
     ALL_Channels.append(YCrCb[:, :, 1]) # channel Cr : index 10
     ALL_Channels.append(YCrCb[:, :, 2]) # channel Cb : index 11
 
-    NCL_pxls_value = np.zeros(shape=(len(ALL_Channels), Ncl_points.shape[0]), dtype=np.uint8) # intensity of nucleus
-    CVX_pxls_Value = np.zeros(shape=(len(ALL_Channels), CVX_points.shape[0]), dtype=np.uint8) # intensity of convexhull
-    ROC_pxls_Value = np.zeros(shape=(len(ALL_Channels), ROC_points.shape[0]), dtype=np.uint8) # intensity of ROC
+    NCL_pxls_value = np.zeros(shape=(len(ALL_Channels), Ncl_points.shape[0]), dtype=np.uint8) 
+    CVX_pxls_Value = np.zeros(shape=(len(ALL_Channels), CVX_points.shape[0]), dtype=np.uint8) 
+    ROC_pxls_Value = np.zeros(shape=(len(ALL_Channels), ROC_points.shape[0]), dtype=np.uint8) 
 
     for ch in range(len(ALL_Channels)):
         p_roc, p_ncl = 0, 0
@@ -290,15 +279,15 @@ def feature_extractor(img, min_area=100):
                 ROC_pxls_Value[ch, p_roc] = ALL_Channels[ch][row, col]
                 p_roc += 1
 
-    Ncl_mean_std = np.zeros(shape=(len(ALL_Channels), 2), dtype=np.float) # mean and std for nucleus in all channels
+    Ncl_mean_std = np.zeros(shape=(len(ALL_Channels), 2), dtype=np.float)
     Ncl_mean_std[:, 0] = np.mean(NCL_pxls_value, axis=1)
     Ncl_mean_std[:, 1] = np.std(NCL_pxls_value, axis=1)
 
-    Cvx_mean_std = np.zeros(shape=(len(ALL_Channels), 2), dtype=np.float) # mean and std for convexhull in all channels
+    Cvx_mean_std = np.zeros(shape=(len(ALL_Channels), 2), dtype=np.float)
     Cvx_mean_std[:, 0] = np.mean(CVX_pxls_Value, axis=1)
     Cvx_mean_std[:, 1] = np.std(CVX_pxls_Value, axis=1)
 
-    Roc_mean_std = np.zeros(shape=(len(ALL_Channels), 2), dtype=np.float) # mean and std for ROC in all channels
+    Roc_mean_std = np.zeros(shape=(len(ALL_Channels), 2), dtype=np.float)
     Roc_mean_std[:, 0] = np.mean(ROC_pxls_Value, axis=1)
     Roc_mean_std[:, 1] = np.std(ROC_pxls_Value, axis=1)
 
