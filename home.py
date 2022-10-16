@@ -22,7 +22,7 @@ import tensorflow as tf
 tf.compat.v1.disable_eager_execution()
 
 def home():
-    st.warn('Da viele Persone diese Website benuzt haben, verlangsamt Streamlit diese!!!. Wenn die Seite einen Erro hat bitte eine E-Mail an david-linus.rutkevich@ueg-leer.net schreiben')
+    st.warning('Da viele Persone diese Website benuzt haben, verlangsamt Streamlit diese!!!. Wenn die Seite einen Erro hat bitte eine E-Mail an david-linus.rutkevich@ueg-leer.net schreiben')
  
     st.markdown('## Was ist Dr Acula?')
     st.markdown('Inspiriert vom berüchtigten Vampir - mit seiner eigenen Netflix Serie - Dracula, hat sich '
