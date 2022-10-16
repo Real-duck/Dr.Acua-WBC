@@ -24,7 +24,6 @@ def wbc():
     st.sidebar.markdown('___')
     option_wbc = st.sidebar.radio('Optionen', ['Segmentieren', 'Erkennen'])
     image = "Bild2"
-    test= st.sidebar.button('Test')
     
     if st.selectbox('Upload oder Testbild?', ['Testbild', 'Upload']) == 'Upload':
         image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
@@ -54,13 +53,6 @@ def wbc():
             merge_image()
     elif option_wbc == 'Erkennen' and start:
 
-        if shape[0] < 800 or shape[1] < 800:
-            prediction =svmpredict(img_path=f'images/svm/{image}.jpg')
-            read(prediction)
-        else:
-            st.error('Bild ist zu groß, bitte Nukleus auschneiden und neu hochladen. Oder Test benutzen')
-    elif test:
-        
         if shape[0] < 800 or shape[1] < 800:
             prediction =svmpredict(img_path=f'images/svm/{image}.jpg')
             read(prediction)
