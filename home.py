@@ -22,8 +22,7 @@ import tensorflow as tf
 tf.compat.v1.disable_eager_execution()
 
 def home():
-    st.warning('Da viele Persone diese Website benuzt haben, verlangsamt Streamlit diese!!!. Wenn die Seite einen Error hat bitte eine E-Mail an david-linus.rutkevich@ueg-leer.net schreiben')
- 
+    st.warning('Da viele Personen diese Website benutzt haben, verlangsamt Streamlit diese! Dies liegt – glaube ich – an Uploads, da Streamlit keinen endlosen temporären Speicherplatz bereitstellt. Wenn die Seite einen Error hat, bitte eine E-Mail an david-linus.rutkevich@ueg-leer.net schreiben') 
     st.markdown('## Was ist Dr Acula?')
     st.markdown('Inspiriert vom berüchtigten Vampir - mit seiner eigenen Netflix Serie - Dracula, hat sich '
                'der Vampir Dr. Acula dazu entschieden sein Wissen über Blut zu veröffentlichen. Er kann '
