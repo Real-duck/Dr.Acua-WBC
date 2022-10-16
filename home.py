@@ -101,10 +101,6 @@ def home():
     st.image(Image.open('images/re1dark.png'))
 
     
-    st.markdown('## Die Einstellungen ')
-    st.markdown('__Die Einstellungen werden an dem ersten Mikroskop Bild, was man im Netz finden kann, erklärt__.')
-    st.image(Image.open('images/Bild4.jpg'))
-    
     st.markdown('#### Transformationen')
     st.markdown(
         '*Mit diesen Methoden kann das Ergebnis leicht überprüft werden. Der Datensatz kann mit den Ergebnissen auch erweitert werden.*')
