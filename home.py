@@ -22,7 +22,7 @@ import tensorflow as tf
 tf.compat.v1.disable_eager_execution()
 
 def home():
-    st.warning('Weil Streamlit die Websie verlangsammt, ist das Plättchen-Modul gesperrt worden.') 
+    st.warning('Weil Streamlit die Websie verlangsamt, ist das Plättchen-Modul gesperrt worden.') 
     st.markdown('## Was ist Dr Acula?')
     st.markdown('Inspiriert vom berüchtigten Vampir - mit seiner eigenen Netflix Serie - Dracula, hat sich '
                'der Vampir Dr. Acula dazu entschieden sein Wissen über Blut zu veröffentlichen. Er kann '
