@@ -24,7 +24,7 @@ tf.compat.v1.disable_eager_execution()
 def cbc():
     st.sidebar.markdown('___')
     st.sidebar.markdown('# Blutkörperchen:')
-    cell_type = st.sidebar.radio('', ['Rote Blutkörperchen', 'Weiße Blutkörperchen', 'Plätchen'])
+    cell_type = st.sidebar.radio('', ['Rote Blutkörperchen', 'Weiße Blutkörperchen'])
 
     #
     if cell_type == 'Rote Blutkörperchen':
