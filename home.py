@@ -35,7 +35,7 @@ def home():
                 'Dafür muss man aktuell die weiße Blutzelle ausschneiden und dann hochladen. Bei größeren Bildern wird das hochgeladene '
                 'Bild aktuell nur in 600x600 aufgeteilt. In der Zukunft soll dafür eine KI benutzt werden, welche alle Zellen automatisch '
                 'findet und ausschneided.')
-    st.image(Image.open('images/reprs.jpg'), caption='Dimiension sind falsch', width=400)
+    st.image(Image.open('images/reprs.jpg'), caption='Dimensionen sind falsch', width=400)
     st.markdown('___')
     #st.markdown('Github: Kommt Bald!')
 
