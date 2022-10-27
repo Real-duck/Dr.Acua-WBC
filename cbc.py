@@ -83,5 +83,5 @@ def cbc():
             elif th: stthreshold(img=f'images/mask.png', cell_type=cell_type)
             elif count_it:
                 stthreshold(img=f'images/mask.png', cell_type=cell_type, show=False)
-                stcount(img=f'images/threshold_mask.jpg')
+                stcount(img=f'images/{img_name}.jpg')
             stcount(img=f'images/mask.png', cell_type=cell_type)
