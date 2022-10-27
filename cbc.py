@@ -71,17 +71,17 @@ def cbc():
         if cell_type == 'rbc':
             remove_artifacts('images/edge_mask.png')
             if cht: hough_transform(img=f'images/edge_mask.png', cell_type='rbc')
-            elif cl: component_labeling(img=f'images/edge_mask.png', cell_type='rbc')
-            elif th: stthreshold(img=f'images/edge_mask.png', cell_type='rbc')
-            elif count_it: 
+            if cl: component_labeling(img=f'images/edge_mask.png', cell_type='rbc')
+            if th: stthreshold(img=f'images/edge_mask.png', cell_type='rbc')
+            if count_it: 
                 stthreshold(img=f'images/edge_mask.png', cell_type='rbc', show=False)
                 stcount(img=f'images/threshold_edge_mask.jpg')
             
         else:
             if cht: hough_transform(img=f'images/mask.png', cell_type=cell_type)
-            elif cl: component_labeling(img=f'images/mask.png')
-            elif th: stthreshold(img=f'images/mask.png', cell_type=cell_type)
-            elif count_it:
+            if cl: component_labeling(img=f'images/mask.png')
+            if th: stthreshold(img=f'images/mask.png', cell_type=cell_type)
+            if count_it:
                 stthreshold(img=f'images/mask.png', cell_type=cell_type, show=False)
                 stcount(img=f'images/{img_name}.jpg')
            
