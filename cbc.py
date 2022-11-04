@@ -50,7 +50,7 @@ def cbc():
     selection_up = st.selectbox('Upload oder Testbild?', ['Testbild', 'Upload'])
     if selection_up == 'Upload':
         image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
-        st.warning('Bilder, die nicht mit einer PowerShot G5 camera gemacht wurden, können zu schlechten Ergebnissen führen.\n')
+        st.warning('Die KI kann nur Bilder auswerten, bei denen ein spezifischer Diffursor benutzt wird. Siehe Hitnergrundfarbe als hinweis \n')
 
         if image_file is not None:
                 load_image(image_file)
