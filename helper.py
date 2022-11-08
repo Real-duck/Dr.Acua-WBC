@@ -44,7 +44,7 @@ def load_image(image_file, svm=False):
         image.save("images/tmp.jpg")
     else: 
         open_cv_image = np.array(img) 
-        # open_cv_image = open_cv_image[:, :, ::-1].copy() 
+        open_cv_image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
         cv2.imwrite('images/svm/tmp.jpg', open_cv_image)
     # save image
     
