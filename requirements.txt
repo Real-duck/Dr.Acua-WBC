@@ -5,7 +5,7 @@ numpy
 opencv_contrib_python
 pandas
 Pillow
-pyhdust
+pyhdust==1.4.0
 scikit_image
 scikit_learn
 scipy
